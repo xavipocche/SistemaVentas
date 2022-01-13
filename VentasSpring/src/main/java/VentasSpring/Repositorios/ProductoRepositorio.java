@@ -1,0 +1,22 @@
+package VentasSpring.Repositorios;
+
+import VentasSpring.Entidades.Producto;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+/**
+ *
+ * @author Xavier Pocchettino
+ */
+@Repository
+public interface ProductoRepositorio extends JpaRepository<Producto, String> {
+    
+    @Query("SELECT p FROM Producto p ORDER BY p.nombre")
+    public List<Producto> listarProductos();
+    
+    @Query("SELECT p from Producto p ORDER BY p.precio")
+    public List<Producto> ordenarProductosPrecio();
+
+}
