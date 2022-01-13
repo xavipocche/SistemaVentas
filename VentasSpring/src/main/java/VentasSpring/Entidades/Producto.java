@@ -26,7 +26,7 @@ public class Producto {
     private String nombre;
     
     @NotNull
-    private String precio;
+    private Double precio;
     
     @NotEmpty
     private String descripcion;
