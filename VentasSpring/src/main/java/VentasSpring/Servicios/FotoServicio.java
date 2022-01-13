@@ -1,4 +1,4 @@
-package Servicios;
+package VentasSpring.Servicios;
 
 import org.springframework.stereotype.Service;
 
