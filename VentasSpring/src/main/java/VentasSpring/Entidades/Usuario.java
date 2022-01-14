@@ -48,6 +48,6 @@ public class Usuario {
     private Rol rol;
     
     @OneToOne
-    private List<Foto> foto;
+    private Foto foto;
     
 }
