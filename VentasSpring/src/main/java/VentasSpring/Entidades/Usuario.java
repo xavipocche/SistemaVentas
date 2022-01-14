@@ -47,8 +47,6 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Rol rol;
     
-    @OneToOne
-    private Pedido pedido;
     @OneToMany
     private List<Foto> foto;
     

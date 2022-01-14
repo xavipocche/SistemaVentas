@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Data;
@@ -26,4 +27,8 @@ public class Pedido {
     
     @OneToMany
     private List<Producto> productos;
+    
+    //Es mejor crear un pedido y setearle un usuario que crear un usuario y setearle un pedido
+    @OneToOne
+    private Usuario usuario;
 }
