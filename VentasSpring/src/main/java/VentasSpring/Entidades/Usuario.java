@@ -47,7 +47,7 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Rol rol;
     
-    @OneToMany
+    @OneToOne
     private List<Foto> foto;
     
 }
