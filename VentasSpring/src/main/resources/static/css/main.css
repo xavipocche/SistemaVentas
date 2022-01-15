@@ -4218,3 +4218,6 @@ textarea {
 .texto-centrado {
 	text-align: center;
 }
+.form-file {
+	padding-top: 0.5em;
+}
