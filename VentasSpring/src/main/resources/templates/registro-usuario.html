@@ -4,7 +4,7 @@
         html5up.net | @ajlkn
         Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>Registro</title>
@@ -46,29 +46,33 @@
 		<article id="main">
 
 			<section class="form-registro responsive-form">
-				<form method="post" action="#" enctype="multipart/form-data">
+				<form method="POST" th:action="@{/usuario/registro}" th:object="${usuario}" enctype="multipart/form-data">
 					<h2 class="texto-centrado">FORMULARIO DE REGISTRO</h2>
 					<div class="gtr-uniform">
 						<label for="demo-name" style="margin-bottom: 2px;">NOMBRE:</label>
 						<div class="col-6" style="margin-bottom: 5px;">
-							<input type="text" name="nombre" id="demo-name" value="" placeholder="Name" />
+							<input type="text" name="nombre" id="demo-name" th:field="*{nombre}" placeholder="Name" />
 						</div>
+						<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color: red;"></span>
 
 						<label for="demo-name" style="margin-bottom: 2px;">APELLIDO:</label>
 						<div class="col-6" style="margin-bottom: 5px;">
-							<input type="text" name="apellido" id="demo-email" value="" placeholder="Apellido" />
+							<input type="text" name="apellido" id="demo-email" th:field="*{apellido}" placeholder="Apellido" />
 						</div>
+						<span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" style="color: red;"></span>
 
 						<label for="demo-name" style="margin-bottom: 2px;">E-MAIL:</label>
 						<div class="col-6" style="margin-bottom: 5px;">
-							<input type="email" name="email" id="demo-email" value="" placeholder="Email" />
+							<input type="email" name="email" id="demo-email" th:field="*{email}" placeholder="Email" />
 						</div>
+						<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;"></span>
 
 						<label for="demo-name" style="margin-bottom: 2px;">CONTRASEÑA:</label>
 						<div class="col-6" style="margin-bottom: 5px;">
-							<input class="stylesNumber" type="password" name="password" id="demo-email" value=""
+							<input class="stylesNumber" type="password" name="password" id="demo-email" th:field="*{password}"
 								placeholder="Contraseña" />
 						</div>
+						<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"></span>
 
 						<label for="demo-name" style="margin-bottom: 2px;">TELEFONO:</label>
 						<div class="col-6" style="margin-bottom: 5px;">
