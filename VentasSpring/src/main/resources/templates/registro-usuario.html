@@ -6,128 +6,131 @@
 -->
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-	<title>Registro</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-</head>
+    <head>
+        <title>Registro</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
 
-<body class="is-preload">
+    <body class="is-preload">
 
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
 
-		<!-- Header -->
-		<header id="header">
-			<h1><a href="/">VENTAS SPRING</a></h1>
-			<nav id="nav">
-				<ul>
-					<li class="special">
-						<a href="#menu" class="menuToggle"><span>Menu</span></a>
-						<div id="menu">
-							<ul>
-								<li><a href="/">Home</a></li>
-								<li><a href="/generic">Generic</a></li>
-								<li><a href="/elements">Elements</a></li>
-								<li><a href="/usuario/registro">Registrate</a></li>
-								<li><a href="#">Log In</a></li>
-								<li><a href="/producto/registro">Registro Productos</a></li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</header>
+            <!-- Header -->
+            <header id="header">
+                <h1><a href="/">VENTAS SPRING</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/generic">Generic</a></li>
+                                    <li><a href="/elements">Elements</a></li>
+                                    <li><a href="/usuario/registro">Registrate</a></li>
+                                    <li><a href="#">Log In</a></li>
+                                    <li><a href="/producto/registro">Registro Productos</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
 
-		<!-- Main -->
-		<article id="main">
+            <!-- Main -->
+            <article id="main">
 
-			<section class="form-registro responsive-form">
-				<form method="POST" th:action="@{/usuario/registro}" th:object="${usuario}" enctype="multipart/form-data">
-					<h2 class="texto-centrado">FORMULARIO DE REGISTRO</h2>
-					<div class="gtr-uniform">
-						<label for="demo-name" style="margin-bottom: 2px;">NOMBRE:</label>
-						<div class="col-6" style="margin-bottom: 5px;">
-							<input type="text" name="nombre" id="demo-name" th:field="*{nombre}" placeholder="Name" />
-						</div>
-						<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color: red;"></span>
+                <section class="form-registro responsive-form">
+                    
+                    <p th:if="${error != null}" th:text="${error}" style="color: red;"></p>
+                    <form method="POST" th:action="@{/usuario/registro}" th:object="${usuario}" enctype="multipart/form-data">
+                        <h2 class="texto-centrado">FORMULARIO DE REGISTRO</h2>
+                        <div class="gtr-uniform">
+                            <label for="demo-name" style="margin-bottom: 2px;">NOMBRE:</label>
+                            <div class="col-6" style="margin-bottom: 5px;">
+                                <input type="text" name="nombre" id="demo-name" th:field="*{nombre}" placeholder="Name" />
+                            </div>
+                            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color: red;"></span>
 
-						<label for="demo-name" style="margin-bottom: 2px;">APELLIDO:</label>
-						<div class="col-6" style="margin-bottom: 5px;">
-							<input type="text" name="apellido" id="demo-email" th:field="*{apellido}" placeholder="Apellido" />
-						</div>
-						<span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" style="color: red;"></span>
+                            <label for="demo-name" style="margin-bottom: 2px;">APELLIDO:</label>
+                            <div class="col-6" style="margin-bottom: 5px;">
+                                <input type="text" name="apellido" id="demo-email" th:field="*{apellido}" placeholder="Apellido" />
+                            </div>
+                            <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" style="color: red;"></span>
 
-						<label for="demo-name" style="margin-bottom: 2px;">E-MAIL:</label>
-						<div class="col-6" style="margin-bottom: 5px;">
-							<input type="email" name="email" id="demo-email" th:field="*{email}" placeholder="Email" />
-						</div>
-						<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;"></span>
+                            <label for="demo-name" style="margin-bottom: 2px;">E-MAIL:</label>
+                            <div class="col-6" style="margin-bottom: 5px;">
+                                <input type="email" name="email" id="demo-email" th:field="*{email}" placeholder="Email" />
+                            </div>
+                            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;"></span>
 
-						<label for="demo-name" style="margin-bottom: 2px;">CONTRASEÑA:</label>
-						<div class="col-6" style="margin-bottom: 5px;">
-							<input class="stylesNumber" type="password" name="password" id="demo-email" th:field="*{password}"
-								placeholder="Contraseña" />
-						</div>
-						<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"></span>
+                            <label for="demo-name" style="margin-bottom: 2px;">CONTRASEÑA:</label>
+                            <div class="col-6" style="margin-bottom: 5px;">
+                                <input class="stylesNumber" type="password" name="password" id="demo-email" th:field="*{password}"
+                                       placeholder="Contraseña" />
+                            </div>
+                            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"></span>
 
-						<label for="demo-name" style="margin-bottom: 2px;">TELEFONO:</label>
-						<div class="col-6" style="margin-bottom: 5px;">
-							<input class="stylesNumber" type="number" name="telefono" id="demo-email" value=""
-								placeholder="Teléfono" />
-						</div>
+                            <label for="demo-name" style="margin-bottom: 2px;">TELEFONO:</label>
+                            <div class="col-6" style="margin-bottom: 5px;">
+                                <input class="stylesNumber" type="number" name="telefono" id="demo-email" th:field="*{telefono}"
+                                       placeholder="Teléfono" />
+                            </div>
+                            <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" style="color: red;"></span>
 
-						<label for="demo-name" style="margin-bottom: 2px;">SALDO:</label>
-						<div class="col-6" style="margin-bottom: 5px;">
-							<input class="stylesNumber" type="number" name="saldo" id="demo-email" value=""
-								placeholder="Saldo" />
-						</div>
+                            <label for="demo-name" style="margin-bottom: 2px;">SALDO:</label>
+                            <div class="col-6" style="margin-bottom: 5px;">
+                                <input class="stylesNumber" type="number" name="saldo" id="demo-email" th:field="*{saldo}"
+                                       placeholder="Saldo" />
+                            </div>
 
-						<label for="demo-name" style="margin-bottom: 2px;">FOTO:</label>
-						<div class="col-6" style="margin-bottom: 5px;">
-							<input class="stylesNumber form-file" type="file" name="archivo" id="demo-email" value=""
-								placeholder="Foto" />
-						</div>
+                            <label for="demo-name" style="margin-bottom: 2px;">FOTO:</label>
+                            <div class="col-6" style="margin-bottom: 5px;">
+                                <input class="stylesNumber form-file" type="file" name="archivo" id="demo-email"
+                                       placeholder="Foto" />
+                            </div>
 
-						<div class="col-12">
-							<ul class="actions">
-								<li><input type="submit" value="Registrarse" class="primary" /></li>
-								<li><input type="reset" value="Reset" /></li>
-							</ul>
-						</div>
-					</div>
-				</form>
-			</section>
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="submit" value="Registrarse" class="primary" /></li>
+                                    <li><input type="reset" value="Reset" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </section>
 
-			<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled</li>
-					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</footer>
+                <!-- Footer -->
+                <footer id="footer">
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                        <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                    </ul>
+                    <ul class="copyright">
+                        <li>&copy; Untitled</li>
+                        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </footer>
 
-	</div>
+        </div>
 
-	<!-- Scripts -->
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/jquery.scrollex.min.js"></script>
-	<script src="/js/jquery.scrolly.min.js"></script>
-	<script src="/js/browser.min.js"></script>
-	<script src="/js/breakpoints.min.js"></script>
-	<script src="/js/util.js"></script>
-	<script src="/js/main.js"></script>
+        <!-- Scripts -->
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/jquery.scrollex.min.js"></script>
+        <script src="/js/jquery.scrolly.min.js"></script>
+        <script src="/js/browser.min.js"></script>
+        <script src="/js/breakpoints.min.js"></script>
+        <script src="/js/util.js"></script>
+        <script src="/js/main.js"></script>
 
-</body>
+    </body>
 
 </html>

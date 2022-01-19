@@ -1,5 +1,6 @@
 package VentasSpring.Servicios;
 
+import VentasSpring.Entidades.Foto;
 import VentasSpring.Entidades.Usuario;
 import VentasSpring.Enums.Rol;
 import VentasSpring.Errores.ErrorServicio;
@@ -8,6 +9,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -19,11 +21,16 @@ public class UsuarioServicio {
     @Autowired
     private UsuarioRepositorio usuariorepositorio;
     
+    @Autowired
+    private FotoServicio fotoServicio;
+    
     @Transactional
     public void registrarUsuario(String nombre, String apellido, String email, 
-            String password, Long telefono){
+            String password, Long telefono, Double saldo, MultipartFile archivo) throws Exception{
         
-        //Validar datos
+        if (usuariorepositorio.buscarPorEmail(email) != null) {
+            throw new Exception("Ya existe un usuario con ese email");
+        }
         
         Usuario usuario = new Usuario();
         
@@ -33,7 +40,11 @@ public class UsuarioServicio {
         usuario.setPassword(password);
         usuario.setTelefono(telefono);
         usuario.setAlta(Boolean.TRUE);
+        usuario.setSaldo(saldo);
         usuario.setRol(Rol.USER);
+        
+        Foto foto = fotoServicio.guardarFoto(archivo);
+        usuario.setFoto(foto);
         
         usuariorepositorio.save(usuario);
     }
