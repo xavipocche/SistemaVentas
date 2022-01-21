@@ -4,7 +4,7 @@
         html5up.net | @ajlkn
         Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Registro</title>
@@ -46,43 +46,48 @@
         <article id="main">
 
             <section class="form-registro responsive-form">
-                <form method="post" action="#" enctype="multipart/form-data">
+                
+                <p th:if="${error != null}" th:text="${error}" class="error texto-centrado"></p>
+                <form method="POST" th:action="@{/producto/registro}" th:object="${producto}"
+                    enctype="multipart/form-data">
                     <h2 class="texto-centrado">REGISTRO DE PRODUCTOS</h2>
                     <div class="gtr-uniform">
                         <label for="demo-name" style="margin-bottom: 2px;">NOMBRE DEL PRODUCTO:</label>
                         <div class="col-6" style="margin-bottom: 5px;">
-                            <input type="text" name="nombre" id="demo-name" value="" placeholder="Name" />
+                        <input type="text" name="nombre" id="demo-name" th:field="*{nombre}" placeholder="Name" />
                         </div>
+                        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color: red;"></span>
 
                         <label for="demo-name" style="margin-bottom: 2px;">PRECIO:</label>
                         <div class="col-6" style="margin-bottom: 5px;">
-                            <input class="stylesNumber" type="number" name="precio" id="demo-email" value=""
-                                placeholder="Precio" />
+                        <input class="stylesNumber" type="number" name="precio" id="demo-email" th:field="*{precio}" placeholder="Precio" />
                         </div>
+                        <span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}" style="color: red;"></span>
 
                         <label for="demo-name" style="margin-bottom: 2px;">NOMBRE DEL FABRICANTE:</label>
                         <div class="col-6" style="margin-bottom: 5px;">
-                            <input class="stylesNumber" type="password" name="fabricante" id="demo-email" value=""
-                                placeholder="Name" />
+                        <input class="stylesNumber" type="text" name="fabricante" id="demo-email"
+                        th:field="*{fabricante}" placeholder="Name" />
                         </div>
+                        <span th:if="${#fields.hasErrors('fabricante')}" th:errors="*{fabricante}" style="color: red;"></span>
 
                         <label for="demo-name" style="margin-bottom: 2px;">STOCK:</label>
                         <div class="col-6" style="margin-bottom: 5px;">
-                            <input class="stylesNumber" type="number" name="stock" id="demo-email" value=""
-                                placeholder="Stock" />
+                        <input class="stylesNumber" type="number" name="stock" id="demo-email" th:field="*{stock}" placeholder="Stock" />
                         </div>
+                        <span th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}" style="color: red;"></span>
 
                         <label for="demo-name" style="margin-bottom: 2px;">FOTOS:</label>
                         <div class="col-6" style="margin-bottom: 5px;">
-                            <input class="stylesNumber form-file" type="file" name="archivo" id="demo-email" value=""
-                                placeholder="Fotos" />
+                        <input class="stylesNumber form-file" type="file" accept="image/png, image/jpeg" multiple name="archivos" id="demo-email" placeholder="Fotos" />
                         </div>
 
                         <label for="demo-name" style="margin-bottom: 2px;">DESCRIPCION DEL PRODUCTO:</label>
                         <div class="col-12" style="margin-bottom: 10px;">
-                            <textarea name="descripcion" id="demo-message" placeholder="Ingrese una descripción"
-                                rows="6"></textarea>
+                        <textarea name="descripcion" id="demo-message" th:field="*{descripcion}"
+                        placeholder="Ingrese una descripción" rows="6"></textarea>
                         </div>
+                        <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}" style="color: red;"></span>
 
                         <div class="col-12">
                             <ul class="actions">

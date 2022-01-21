@@ -4221,3 +4221,10 @@ textarea {
 .form-file {
 	padding-top: 0.5em;
 }
+
+/** Mensaje de error **/
+.error {
+    padding: 1rem;
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
