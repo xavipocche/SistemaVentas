@@ -2,6 +2,7 @@ package VentasSpring.Entidades;
 
 import VentasSpring.Enums.Rol;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
@@ -38,15 +41,18 @@ public class Usuario {
     private String email;
     
     @NotEmpty
+    @Size(min=8)
     private String password;
     
+    @NotNull
     private Long telefono;
+    
     private Boolean alta;
-    private Long saldo;
+    private Double saldo;
     
     @Enumerated(EnumType.STRING)
     private Rol rol;
-    
+   
     @OneToOne
     private Foto foto;
     
