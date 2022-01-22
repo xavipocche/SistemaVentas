@@ -36,9 +36,10 @@ public class Producto {
     
     @NotNull
     private Integer stock;
+    
     private Boolean alta;
     
     @OneToMany
-    private List<Foto> foto;
+    private List<Foto> fotos;
 
 }

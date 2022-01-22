@@ -38,7 +38,7 @@ public class UsuarioController {
             if (errores.hasErrors()) {
                 return "registro-usuario.html";
             }
-
+            
             usuarioServicio.registrarUsuario(usuario.getNombre(), usuario.getApellido(), usuario.getEmail(), usuario.getPassword(), usuario.getTelefono(), usuario.getSaldo(), archivo);
 
             return "index.html";
