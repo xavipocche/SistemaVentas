@@ -4228,3 +4228,9 @@ textarea {
     background-color: #FF0000;
     color: #FFFFFF;
 }
+
+/** Boton de Salida **/
+
+.boton-salir {
+	border-bottom: 1px;
+}

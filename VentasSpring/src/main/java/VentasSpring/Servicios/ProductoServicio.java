@@ -118,4 +118,8 @@ public class ProductoServicio {
             throw new ErrorServicio("EL producto solicitado no existe");
         }
     }
+    
+    public List<Producto> listarProductos() throws ErrorServicio {
+        return productoRepositorio.listarProductos();
+    }
 }
