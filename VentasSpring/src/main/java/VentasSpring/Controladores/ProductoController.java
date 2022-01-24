@@ -5,6 +5,7 @@ import VentasSpring.Servicios.ProductoServicio;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author Xavier Pocchettino
  */
+//@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 @Controller
 @RequestMapping("/producto")
 public class ProductoController {
