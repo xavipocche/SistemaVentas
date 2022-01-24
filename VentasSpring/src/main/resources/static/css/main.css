@@ -3641,7 +3641,7 @@ textarea {
 		-webkit-transition: background-color 0.2s ease;
 		-ms-transition: background-color 0.2s ease;
 		transition: background-color 0.2s ease;
-		background: #2e3842;
+		background: #414241;
 		height: 4.5em;
 		left: 0;
 		line-height: 3em;
@@ -4084,7 +4084,7 @@ textarea {
 
 	#footer {
 		padding: 6em 0 4em 0;
-		background-color: #1d242a;
+		background-color: #414241;
 		text-align: center;
 	}
 
