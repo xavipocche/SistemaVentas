@@ -4,6 +4,7 @@ import VentasSpring.Entidades.Usuario;
 import VentasSpring.Servicios.UsuarioServicio;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
@@ -38,7 +39,7 @@ public class UsuarioController {
             if (errores.hasErrors()) {
                 return "registro-usuario.html";
             }
-            
+
             usuarioServicio.registrarUsuario(usuario.getNombre(), usuario.getApellido(), usuario.getEmail(), usuario.getPassword(), usuario.getTelefono(), usuario.getSaldo(), archivo);
 
             return "index.html";
@@ -47,6 +48,11 @@ public class UsuarioController {
             return "registro-usuario.html";
         }
 
+    }
+
+    @GetMapping("/login")
+    public String loginUsuario(ModelMap modelo) {
+        return "login.html";
     }
 
 }
