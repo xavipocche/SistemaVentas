@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Ventas Spring</title>
@@ -19,7 +14,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1 style="margin-top: 10px"><a href="/">Ventas Spring</a></h1>
+						<h1 style="margin-top: 12px"><a href="/">Ventas Spring</a></h1>
 						<nav id="nav" th:replace="/fragments/nav :: nav"></nav>
 					</header>
 
@@ -62,7 +57,7 @@
 								<h2>registro<br />
 								de usuarios</h2>
 								<p>Haciendo click en el botón usted podrá registrarse en nuestra plataforma para realizar pedidos.</p>
-								<a href="#" class="button primary">Registrarse</a>
+								<a style="background-color: #047700;" href="/usuario/registro" class="button primary">Registrarse</a>
 							</div>
 						</section>
 						<section class="spotlight">
@@ -70,7 +65,7 @@
 								<h2>Catálogo<br />
 								de productos</h2>
 								<p>En el siguiente apartado usted podrá visualizar todos nuestros productos.</p>
-								<a href="#" class="button primary">Ir al catálogo</a>
+								<a href="/pedido/catalogo" class="button primary">Ir al catálogo</a>
 							</div>
 						</section>
 						<section class="spotlight">
@@ -135,18 +130,7 @@
 					</section>
 
 				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
+                                <footer id="nav" th:replace="/fragments/footer :: footer"></footer>
 
 			</div>
 

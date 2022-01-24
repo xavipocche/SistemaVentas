@@ -19,13 +19,13 @@ public class ControllerVistas {
         return "index.html";
     }
     
-    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+//    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @GetMapping("/generic")
     public String generic(){
         return "generic.html";
     }
     
-    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+//    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @GetMapping("/elements")
     public String elements(){
         return "elements.html";
