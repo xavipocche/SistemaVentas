@@ -31,7 +31,7 @@ public class ControllerVistas {
         return "elements.html";
     }
     
-    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+//    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     @GetMapping("/inicio")
     public String loginSuccesed(ModelMap modelo) {
         return "index.html";
