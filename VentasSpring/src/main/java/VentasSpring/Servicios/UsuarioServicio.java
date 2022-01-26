@@ -110,6 +110,16 @@ public class UsuarioServicio implements UserDetailsService {
             throw new ErrorServicio("El usuario solicitado no existe");
         }
     }
+    
+    public Usuario buscarPorId(String id) throws ErrorServicio{
+        Optional<Usuario> respuestaUsuario = usuariorepositorio.findById(id);
+        if(respuestaUsuario.isPresent()){
+            Usuario usuario = respuestaUsuario.get();
+            return usuario; 
+        } else {
+            throw new ErrorServicio("El usuario solicitado no existe");
+        }
+    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
