@@ -122,4 +122,15 @@ public class ProductoServicio {
     public List<Producto> listarProductos() throws ErrorServicio {
         return productoRepositorio.listarProductos();
     }
+    
+    public Producto buscarPorId(String id) throws ErrorServicio {
+        Optional<Producto> respuestaProducto = productoRepositorio.findById(id);
+        if (respuestaProducto.isPresent()) {
+            Producto producto = respuestaProducto.get();
+            return producto;
+        } else {
+            throw new ErrorServicio("EL producto solicitado no existe");
+        }
+        
+    }
 }
