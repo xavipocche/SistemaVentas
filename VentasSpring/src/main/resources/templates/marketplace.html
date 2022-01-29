@@ -38,7 +38,9 @@
                             </thead>
                             <tbody th:each="producto: ${productos}">
                                 <tr>
-                                    <td th:src="${producto.fotos}"></td>
+                                    <td th:each="foto: ${producto.fotos}">
+                                        <img th:src="${foto}" style="width: 20px"/>
+                                    </td>
                                     <td th:text="${producto.nombre}"></td>
                                     <td th:text="${producto.descripcion}"></td>
                                     <td th:text="'$' + ${producto.precio}"></td>
