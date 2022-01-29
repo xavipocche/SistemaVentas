@@ -1,8 +1,10 @@
 
 package VentasSpring.Controladores;
 
+import VentasSpring.Entidades.Producto;
 import VentasSpring.Entidades.Usuario;
 import VentasSpring.Errores.ErrorServicio;
+import VentasSpring.Servicios.ProductoServicio;
 import VentasSpring.Servicios.UsuarioServicio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +29,9 @@ public class FotoController {
     @Autowired
     private UsuarioServicio usuarioServicio;
     
+    @Autowired
+    private ProductoServicio productoServicio;
+    
     @GetMapping("/usuario")
     public ResponseEntity<byte[]> fotoUsuario(String id) {
         try {
@@ -35,7 +40,24 @@ public class FotoController {
             byte[] foto = usuario.getFoto().getContenido();
             
             HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            
+            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(FotoController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    
+    @GetMapping("/producto")
+    public ResponseEntity<byte[]> fotoProducto(String id) {
+        try {
+            Producto producto = productoServicio.buscarPorId(id);
+
+            byte[] foto = producto.getFotos().get(0).getContenido();
+            
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
             
             return new ResponseEntity<>(foto, headers, HttpStatus.OK);
         } catch (ErrorServicio ex) {

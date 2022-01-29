@@ -6,6 +6,7 @@
                 <ul>
                     <li th:if="${session.usuariosession != null}" th:text="${session.usuariosession.rol} + ': ' + ${session.usuariosession.nombre}"></li>
                     <li><a href="/">Home</a></li>
+                    <li th:if="${session.usuariosession != null}"><a th:href="@{/foto/usuario(id=__${session.usuariosession.id}__)}">Foto Usuario</a></li>
                     <li><a href="/generic">Generic</a></li>
                     <li><a href="/elements">Elements</a></li>
                     <li><a href="/pedido/catalogo">Marketplace</a></li>
