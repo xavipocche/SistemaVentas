@@ -1,6 +1,7 @@
 package VentasSpring.Servicios;
 
 import VentasSpring.Entidades.Foto;
+import VentasSpring.Errores.ErrorServicio;
 import VentasSpring.Repositorios.FotoRepositorio;
 import java.util.Optional;
 import javax.imageio.ImageIO;
@@ -94,6 +95,20 @@ public class FotoServicio {
         }
 
         return null;
+    }
+    
+    @Transactional
+    public Foto buscarPorId(String id) throws ErrorServicio {
+        Optional<Foto> respuestaFoto = fotoRepositorio.findById(id);
+        
+        Foto foto;
+        
+        if (respuestaFoto.isPresent()) {
+            foto = respuestaFoto.get();
+        } else {
+            throw new ErrorServicio("La foto solicitada no existe");
+        }
+        return foto;
     }
 
 }
