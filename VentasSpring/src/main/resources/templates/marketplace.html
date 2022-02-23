@@ -44,7 +44,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4" style="margin: 2em 2em 2em 0;" id="main">
                 
                 <div class="col" th:each="producto: ${productos}">
-                    <a href="/">
+                    <a th:href="@{/pedido/producto/__${producto.id}__}">
                         <div class="card h-100 bg-secondary">
                             <!-- <div th:each="foto: ${producto.fotos}">
                                 <img th:src="${'/foto/productos?id=' + foto.id}" class="card-img-top" alt="Imagen Producto">
@@ -53,12 +53,13 @@
                             <img th:src="${'/foto/producto?id=' + producto.id}" class="card-img-top" alt="Imagen Producto">
                             
                             <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;" th:text="${producto.nombre}"></h5>
-                            <p class="card-text" th:text="${producto.descripcion}"></p>
-                            </div>
+                                <h5 class="card-title" style="text-align: center;" th:text="${producto.nombre}"></h5>
+                                <p class="card-text" th:text="${producto.descripcion}"></p>
+                            </div>  
                             <div class="card-footer" style="text-align: center;">
                                 <h5 style="margin: 0; color:limegreen;" th:text="${#numbers.formatCurrency(producto.precio)}"></h5>
                             </div>
+                            
                         </div>
                     </a>
                 </div>
