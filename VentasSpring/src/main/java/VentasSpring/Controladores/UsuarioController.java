@@ -11,6 +11,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -51,7 +52,10 @@ public class UsuarioController {
     }
 
     @GetMapping("/login")
-    public String loginUsuario(ModelMap modelo) {
+    public String loginUsuario(ModelMap modelo, @RequestParam(required = false) String error, @RequestParam(required = false) String exito) {
+        if(error != null){
+            modelo.put("error", "Nombre de usuario o clave incorrectos");
+        }
         return "login.html";
     }
 

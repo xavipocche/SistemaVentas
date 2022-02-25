@@ -40,6 +40,12 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
+@media screen and (max-width: 950px) {
+  .responsive-footer {
+    font-size: 12px !important;
+  }
+}
+
 .color-options option {
   background-color: rgb(70 78 85);
 }
@@ -311,7 +317,7 @@ h4,
 h5,
 h6 {
   color: #fff;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.225em;
   line-height: 1em;
   margin: 0 0 1em 0;
@@ -2005,7 +2011,7 @@ input[type="email"]:focus,
 input[type="number"]:focus,
 select:focus,
 textarea:focus {
-  box-shadow: 0 0 0 2px #21b2a6;
+  box-shadow: 0 0 0 2px #cddc39;
 }
 
 select {
@@ -2559,8 +2565,8 @@ button,
   background-color: transparent;
   border-radius: 3px;
   border: 0;
-  box-shadow: inset 0 0 0 2px #fff;
-  color: #fff;
+  box-shadow: inset 0 0 0 2px #272827;
+  color: #272827;
   cursor: pointer;
   display: inline-block;
   font-size: 0.8em;
@@ -2921,7 +2927,7 @@ button:disabled,
 /* Wrapper */
 
 .wrapper {
-  padding: 6em 0 4em 0;
+  padding: 6em 0 5em 0;
 }
 
 .wrapper > .inner {
@@ -2946,8 +2952,8 @@ button:disabled,
 }
 
 .wrapper.style1 {
-  background-color: #21b2a6;
-  color: #c8ece9;
+  background-color: #7d7706;
+  color: white;
 }
 
 .wrapper.style1 strong,
@@ -2988,7 +2994,7 @@ button:disabled,
 }
 
 .wrapper.style1 header.major p {
-  color: #c8ece9;
+  color: white;
 }
 
 .wrapper.style1 label {
@@ -3587,7 +3593,8 @@ body.is-menu-visible #menu {
   -webkit-transition: background-color 0.2s ease;
   -ms-transition: background-color 0.2s ease;
   transition: background-color 0.2s ease;
-  background: #414241;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(50,49,49,1) 61%, rgba(73,73,73,1) 100%);
   height: 4.5em;
   left: 0;
   line-height: 3em;

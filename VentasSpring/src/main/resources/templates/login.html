@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" style="background-color: #272827;">
 
 <head>
-    <title>Registro</title>
+    <title>Login</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/css/main.css" />
@@ -24,22 +24,26 @@
 
             <section class="form-registro responsive-form">
                 
-                <p th:if="${error != null}" th:text="${error}" class="error texto-centrado"></p>
+                
                 <form method="POST" th:action="@{/logincheck}">
                     <h2 class="texto-centrado" style="border: 2px solid white; margin-top: 100px;">Inicia Sesión</h2>
                     <div class="gtr-uniform">
-
-                        <label for="demo-name" style="margin-bottom: 2px;">CORREO ELECTRONICO:</label>
+                        
+                        <p style="background-color: #8f0707; font-family:Verdana; border: 2px solid #ccc; border-radius: 5px" th:if="${error != null}" th:text="${error}" class="error texto-centrado"></p>
+                            
+                        <label for="username" style="margin-bottom: 2px;">CORREO ELECTRONICO:</label>
                         <div class="col-6" style="margin-bottom: 5px;">
-                        <input type="email" name="username" id="demo-name"/>
+                        <input type="email" name="username" id="username"/>
                         </div>
                         
 
-                        <label for="demo-name" style="margin-bottom: 2px;">CONTRASEÑA:</label>
+                        <label for="password" style="margin-bottom: 2px; margin-top: 30px;">CONTRASEÑA:</label>
                         <div class="col-6" style="margin-bottom: 5px;">
-                        <input class="stylesNumber" type="password" name="password" id="demo-email"/>
+                        <input class="stylesNumber" type="password" name="password" id="password"/>
                         </div>
-                            
+                        
+                        
+                        
 
                         <div class="col-12">
                             <ul class="actions">
