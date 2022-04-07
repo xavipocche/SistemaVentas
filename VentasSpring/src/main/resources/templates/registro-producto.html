@@ -22,7 +22,7 @@
 
         <!-- Header -->
         <header id="header">
-            <h1><a href="/">VENTAS SPRING</a></h1>
+            <h1 style="margin-top: 12px"><a href="/">VENTAS SPRING</a></h1>
             <nav id="nav" th:replace="/fragments/nav :: nav"></nav>
         </header>
 
@@ -31,7 +31,7 @@
 
             <section class="form-registro responsive-form">
                 
-                <p th:if="${error != null}" th:text="${error}" class="error texto-centrado"></p>
+                <p style="background-color: #8f0707; font-family:Verdana; border: 2px solid #272827; border-radius: 5px" th:if="${error != null}" th:text="${error}" class="error texto-centrado"></p>
                 <form method="POST" th:action="@{/producto/registro}" th:object="${producto}"
                     enctype="multipart/form-data">
                     <h2 class="texto-centrado">REGISTRO DE PRODUCTOS</h2>
