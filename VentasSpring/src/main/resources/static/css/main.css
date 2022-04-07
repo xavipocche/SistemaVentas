@@ -1,12 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
-/*
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 /* Estilos de formulario de tipo número */
 .stylesNumber {
   padding: 0 1em;
@@ -24,7 +18,70 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-/* Reposponsive formulario */
+#main-title{
+    margin-top: 12px;
+}
+
+#main-title :hover{
+    transform: scale(1.1);
+}
+
+#description{
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white; 
+    font-size: 32px; 
+    letter-spacing: 5px; 
+    line-height: 50px;
+}
+
+.services{
+    border-top: 1px solid #ccc;
+}
+
+/* Responsive description */
+
+@media screen and (max-width: 480px){
+    #description{
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
+
+/* Responsive names */
+
+@media screen and (max-width: 480px){
+    #names{
+        letter-spacing: 1px !important;
+        font-size: 10px;
+    }
+}
+
+/* Responsive footer */
+
+@media screen and (max-width: 480px){
+    .responsive-footer{
+        display: block;
+        letter-spacing: 2px !important;
+    }
+    
+    .icono{
+        display: inline-block;
+    }
+    
+    .developed{
+        font-size: 12px !important;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .services{
+        background-image: none !important;
+    }
+}
+
+/* Responsive formulario */
 
 @media screen and (max-width: 480px) {
   .responsive-form {
@@ -317,7 +374,6 @@ h4,
 h5,
 h6 {
   color: #fff;
-  font-weight: 600;
   letter-spacing: 0.225em;
   line-height: 1em;
   margin: 0 0 1em 0;
@@ -335,8 +391,8 @@ h6 a {
 }
 
 h2 {
-  font-size: 1.35em;
-  line-height: 1.75em;
+  font-size: 2.5em;
+  line-height: 1.5em;
 }
 
 @media screen and (max-width: 736px) {
@@ -2640,6 +2696,7 @@ button.primary,
   background-color: #c6bd16;
   box-shadow: none !important;
   color: black !important;
+  transition: 300ms;
 }
 
 input[type="submit"].primary:hover,
@@ -2648,6 +2705,7 @@ input[type="button"].primary:hover,
 button.primary:hover,
 .button.primary:hover {
   background-color: #a29a12 !important;
+  transform: scale(1.2);
 }
 
 input[type="submit"].primary:active,
@@ -2848,15 +2906,15 @@ button:disabled,
 }
 
 .spotlight:nth-child(1) {
-  background-color: rgba(0, 0, 0, 0.075);
+  background: #272827;
 }
 
 .spotlight:nth-child(2) {
-  background-color: rgba(0, 0, 0, 0.15);
+  background: #272827;
 }
 
 .spotlight:nth-child(3) {
-  background-color: rgba(0, 0, 0, 0.225);
+  background: #272827;
 }
 
 .spotlight:nth-child(4) {
@@ -3118,7 +3176,7 @@ button:disabled,
 }
 
 .wrapper.style2 {
-  background-color: #2e3842;
+  background: #272827;
 }
 
 .wrapper.style3 {
@@ -3621,6 +3679,7 @@ body.is-menu-visible #menu {
   display: block;
   height: inherit;
   line-height: inherit;
+  transition: 300ms;
 }
 
 @media screen and (max-width: 736px) {
@@ -4134,7 +4193,8 @@ body.landing #page-wrapper {
 }
 
 body.landing #footer {
-  background-color: rgba(29, 36, 42, 0.9);
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(45,41,41,1) 100%);
 }
 
 body.is-mobile.landing #page-wrapper {
@@ -4240,4 +4300,4 @@ img {
 
 ion-icon {
 	font-size: 15px;
-  }
+}
