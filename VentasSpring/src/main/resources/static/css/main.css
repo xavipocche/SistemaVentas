@@ -18,6 +18,14 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+#main-title{
+    margin-top: 12px;
+}
+
+#main-title :hover{
+    transform: scale(1.1);
+}
+
 #description{
     text-transform: uppercase;
     font-weight: 500;
@@ -27,7 +35,53 @@ input[type="number"]::-webkit-outer-spin-button {
     line-height: 50px;
 }
 
-/* Reposponsive formulario */
+.services{
+    border-top: 1px solid #ccc;
+}
+
+/* Responsive description */
+
+@media screen and (max-width: 480px){
+    #description{
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
+
+/* Responsive names */
+
+@media screen and (max-width: 480px){
+    #names{
+        letter-spacing: 1px !important;
+        font-size: 10px;
+    }
+}
+
+/* Responsive footer */
+
+@media screen and (max-width: 480px){
+    .responsive-footer{
+        display: block;
+        letter-spacing: 2px !important;
+    }
+    
+    .icono{
+        display: inline-block;
+    }
+    
+    .developed{
+        font-size: 12px !important;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .services{
+        background-image: none !important;
+    }
+}
+
+/* Responsive formulario */
 
 @media screen and (max-width: 480px) {
   .responsive-form {
@@ -2852,15 +2906,15 @@ button:disabled,
 }
 
 .spotlight:nth-child(1) {
-  background: black;
+  background: #272827;
 }
 
 .spotlight:nth-child(2) {
-  background: black;
+  background: #272827;
 }
 
 .spotlight:nth-child(3) {
-  background: black;
+  background: #272827;
 }
 
 .spotlight:nth-child(4) {
@@ -3625,6 +3679,7 @@ body.is-menu-visible #menu {
   display: block;
   height: inherit;
   line-height: inherit;
+  transition: 300ms;
 }
 
 @media screen and (max-width: 736px) {
@@ -4245,4 +4300,4 @@ img {
 
 ion-icon {
 	font-size: 15px;
-  }
+}
