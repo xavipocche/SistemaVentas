@@ -2852,15 +2852,15 @@ button:disabled,
 }
 
 .spotlight:nth-child(1) {
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(50,50,48,1) 100%);
+  background: black;
 }
 
 .spotlight:nth-child(2) {
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(50,50,48,1) 100%);
+  background: black;
 }
 
 .spotlight:nth-child(3) {
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(50,50,48,1) 100%);
+  background: black;
 }
 
 .spotlight:nth-child(4) {
