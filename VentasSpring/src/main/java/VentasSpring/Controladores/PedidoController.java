@@ -26,11 +26,21 @@ public class PedidoController {
     @Autowired
     private ProductoServicio productoServicio;
 
+//    @GetMapping("/catalogo")
+//    public String mostrarProductos(ModelMap modelo) {
+//        try {
+//            modelo.put("productos", productoServicio.listarProductos());
+//            return "marketplace.html";
+//        } catch (ErrorServicio ex) {
+//            return "index.html";
+//        }
+//    }
+    
     @GetMapping("/catalogo")
     public String mostrarProductos(ModelMap modelo) {
         try {
             modelo.put("productos", productoServicio.listarProductos());
-            return "marketplace.html";
+            return "marketplaceList.html";
         } catch (ErrorServicio ex) {
             return "index.html";
         }
