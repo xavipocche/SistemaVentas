@@ -27,7 +27,7 @@
                     <table>
                         <thead>
                             <tr style="text-transform: uppercase;">
-                                <th>Name</th>
+                                <th>Producto</th>
                                 <th>Descripción</th>
                                 <th>Precio</th>
                                 <th class="boton-market" style="text-align: center;">Agregar/Quitar</th>
@@ -38,9 +38,9 @@
                                 <td th:text="${producto.nombre}"></td>
                                 <td th:text="${producto.descripcion}"></td>
                                 <!--<td th:text="${#numbers.formatCurrency(producto.precio)}"></td>-->
-                                <td th:text="${#numbers.formatDecimal(producto.precio,1,2) + '$'}"></td>
+                                <td th:text="${'$' + #numbers.formatDecimal(producto.precio,1,2)}"></td>
                                 <td class="boton-market" style="text-align: center;"><a style="letter-spacing: 0px; line-height: 35px; padding: 5px;" href="#" class="button primary boton-market">Agregar al carrito</a></td>
-                                <td class="boton-responsive" style="text-align: center;"><a style="letter-spacing: 0px; line-height: 25px; padding: 5px;" href="#" class="button primary boton-responsive">Agregar</a></td>
+                                <!--<td class="boton-responsive" style="text-align: center;"><a style="letter-spacing: 0px; line-height: 25px; padding: 5px;" href="#" class="button primary boton-responsive">Agregar</a></td>-->
                             </tr>
                         </tbody>
                         <tfoot>
