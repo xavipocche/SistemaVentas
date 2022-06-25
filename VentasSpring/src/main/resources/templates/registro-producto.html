@@ -69,7 +69,7 @@
                         <label for="demo-name" style="margin-bottom: 2px;">DESCRIPCION DEL PRODUCTO:</label>
                         <div class="col-12" style="margin-bottom: 10px;">
                         <textarea name="descripcion" id="demo-message" th:field="*{descripcion}"
-                        placeholder="Ingrese una descripción" rows="6"></textarea>
+                        placeholder="Ingrese una descripción..." rows="6"></textarea>
                         </div>
                         <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}" style="color: red;"></span>
 
