@@ -256,7 +256,7 @@ q:after {
 }
 
 table {
-  border-collapse: collapse;
+  /*border-collapse: collapse;*/
   border-spacing: 0;
 }
 
@@ -2116,6 +2116,7 @@ select {
 
 textarea {
   padding: 0.75em 1em;
+  resize: none;
 }
 
 input[type="checkbox"],
@@ -2557,6 +2558,8 @@ ul.icons.major li {
 /* Table */
 
 .table-wrapper {
+  width: 90%;
+  margin: 0 auto;
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
 }
@@ -2730,7 +2733,7 @@ input[type="reset"].primary:active,
 input[type="button"].primary:active,
 button.primary:active,
 .button.primary:active {
-  background-color: #eb341c !important;
+  background-color: #068f0e !important;
 }
 
 input[type="submit"].disabled,
