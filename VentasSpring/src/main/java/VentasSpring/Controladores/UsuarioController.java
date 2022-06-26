@@ -1,7 +1,11 @@
 package VentasSpring.Controladores;
 
 import VentasSpring.Entidades.Usuario;
+import VentasSpring.Errores.ErrorServicio;
 import VentasSpring.Servicios.UsuarioServicio;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -9,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,9 +56,38 @@ public class UsuarioController {
 
     }
 
+    @GetMapping("/modificar{id}")
+    public String modificarUsuario(HttpSession session, ModelMap modelo, @RequestParam String id) {
+        try {
+            modelo.put("usuario", usuarioServicio.buscarPorId(id));
+            return "modificar-usuario.html";
+        } catch (ErrorServicio e) {
+            modelo.put("error", e.getMessage());
+            return "login.html";
+        }
+
+    }
+
+//    , @RequestParam String id
+    @PostMapping("/modificar/{id}")
+    public String modificarUsuario(Usuario usuario, Errors errores, ModelMap modelo) {
+        try {
+
+            if (errores.hasErrors()) {
+                return "modificar-usuario.html";
+            }
+            usuarioServicio.modificarUsuario(usuario.getId(), usuario.getNombre(), usuario.getApellido(), usuario.getEmail(), usuario.getTelefono());
+            return "index.html";
+        } catch (Exception e) {
+            modelo.put("error", e.getMessage());
+            return "modificar-usuario.html";
+        }
+
+    }
+
     @GetMapping("/login")
     public String loginUsuario(ModelMap modelo, @RequestParam(required = false) String error, @RequestParam(required = false) String exito) {
-        if(error != null){
+        if (error != null) {
             modelo.put("error", "Nombre de usuario o clave incorrectos");
         }
         return "login.html";

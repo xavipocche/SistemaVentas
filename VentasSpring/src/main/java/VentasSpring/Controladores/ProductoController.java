@@ -34,7 +34,7 @@ public class ProductoController {
         return "registro-producto.html";
 
     }
-
+    
     @PostMapping("/registro")
     public String registroProducto(@Valid Producto producto, Errors errores, ModelMap modelo, List<MultipartFile> archivos) {
         try {

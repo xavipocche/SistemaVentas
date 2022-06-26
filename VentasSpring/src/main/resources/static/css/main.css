@@ -4315,6 +4315,11 @@ img {
   height: 60vh;
 }
 
+.img-usuario {
+	width: 150px;
+  height: 200px;
+}
+
 .img-producto {
 	height: max-content;
 }
