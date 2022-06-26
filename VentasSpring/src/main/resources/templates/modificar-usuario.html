@@ -30,11 +30,12 @@
                         <h2 style="border: 2px solid white; margin-top: 100px;" class="texto-centrado">EDITAR PERFIL</h2>
                         <div class="gtr-uniform">
                             
-                            <input hidden th:field="*{id}" name="id"> 
+                            <input hidden th:field="*{id}" name="id">
 
-                            <!-- <div class="card h-100 bg-secondary">
-                                <img th:src="${'/foto/usuario?id=' + usuario.id}" class="img-usuario" alt="Imagen Usuario">
-                            </div> -->
+                            <div class="container-img"  style="text-align: center;">
+                                <img th:src="${'/foto/usuario?id=' + usuario.id}" th:if="${usuario.foto != null}" class="img-usuario" alt="Imagen Usuario">
+                                <i class="large material-icons" th:if="${usuario.foto == null}" style="font-size: 200px; vertical-align: middle;display: inline-block;">account_circle</i>
+                            </div>
 
                             <label for="demo-name" style="margin-bottom: 2px;">NOMBRE</label>
                             <div class="col-6" style="margin-bottom: 5px;">
@@ -62,7 +63,7 @@
 
                             <div class="col-12">
                                 <ul class="actions">
-                                    <li><input style="background-color: #047700;" type="submit" value="Modificar" class="primary" /></li>
+                                    <li><input style="background-color: #047700;" type="submit" value="Editar" class="primary" /></li>
                                 </ul>
                             </div>
                         </div>

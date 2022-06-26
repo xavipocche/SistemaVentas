@@ -6,9 +6,10 @@
             <div id="menu">
                 <ul>
                     <!-- th:text="${session.usuariosession.rol} + ': ' + ${session.usuariosession.nombre}" -->
-                    <li th:if="${session.usuariosession != null}" >
-                        <a th:href="@{/usuario/modificar(id=__${session.usuariosession.id}__)}">
+                    <li th:if="${session.usuariosession != null}">
+                        <a th:href="@{/usuario/perfil(id=__${session.usuariosession.id}__)}">
                             <i class="large material-icons" style="font-size: 27px; vertical-align: middle;display: inline-block;">account_circle</i>
+                            <!-- <img th:src="${'/foto/usuario?id=' + session.usuariosession.id}" th:if="${session.usuariosession.foto != null}" class="img-usuario-nav" alt="IM"> -->
                             <p th:text="${session.usuariosession.nombre}" style="margin-bottom: 0;display: inline-block;"></p>
                         </a>
                     </li>

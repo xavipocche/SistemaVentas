@@ -68,10 +68,16 @@ public class UsuarioServicio implements UserDetailsService {
     public void modificarUsuario(String idusuario, String nombre, String apellido, String email, Long telefono) throws ErrorServicio {
 
         //Validar datos
+        System.out.println("ANTES DE BUSCARLO");
+        System.out.println("..........");
+        System.out.print("ID: ");
+        System.out.println(idusuario);
         Optional<Usuario> respuestaUsuario = usuariorepositorio.findById(idusuario);
         if (respuestaUsuario.isPresent()) {
             Usuario usuario = respuestaUsuario.get();
-
+            
+            System.out.println("ENCUENTRA EL USUARIO");
+            
             usuario.setNombre(nombre);
             usuario.setApellido(apellido);
             usuario.setEmail(email);

@@ -14,6 +14,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuario, String> {
     
+    @Query("SELECT u FROM Usuario u WHERE u.id = :id")
+    public Usuario buscarPorId(@Param("id") String id);
+    
     @Query("SELECT u FROM Usuario u WHERE u.nombre = :nombre")
     public Usuario buscarPorNombre(@Param("nombre") String nombre);
     

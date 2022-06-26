@@ -4315,11 +4315,6 @@ img {
   height: 60vh;
 }
 
-.img-usuario {
-	width: 150px;
-  height: 200px;
-}
-
 .img-producto {
 	height: max-content;
 }
@@ -4331,4 +4326,37 @@ img {
 
 ion-icon {
 	font-size: 15px;
+}
+
+/** Perfil **/
+
+/* .container-img {
+  position: relative;
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+} */
+
+.img-usuario {
+	height: auto;
+  width: auto;
+  max-height: 200px;
+  max-width: 200px;
+  border-radius: 50%;
+}
+
+.img-usuario-nav {
+	height: auto;
+  width: auto;
+  max-height: 35px;
+  max-width: 35px;
+  border-radius: 50%;
+}
+
+
+.color {
+  background-color: yellow;
 }

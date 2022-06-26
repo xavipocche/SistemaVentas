@@ -56,6 +56,18 @@ public class UsuarioController {
 
     }
 
+    @GetMapping("/perfil{id}")
+    public String perfilUsuario(HttpSession session, ModelMap modelo, @RequestParam String id) {
+        try {
+            modelo.put("usuario", usuarioServicio.buscarPorId(id));
+            return "perfil.html";
+        } catch (ErrorServicio e) {
+            modelo.put("error", e.getMessage());
+            return "elements.html";
+        }
+
+    }
+
     @GetMapping("/modificar{id}")
     public String modificarUsuario(HttpSession session, ModelMap modelo, @RequestParam String id) {
         try {
@@ -63,12 +75,11 @@ public class UsuarioController {
             return "modificar-usuario.html";
         } catch (ErrorServicio e) {
             modelo.put("error", e.getMessage());
-            return "login.html";
+            return "elements.html";
         }
 
     }
 
-//    , @RequestParam String id
     @PostMapping("/modificar/{id}")
     public String modificarUsuario(Usuario usuario, Errors errores, ModelMap modelo) {
         try {
@@ -76,9 +87,23 @@ public class UsuarioController {
             if (errores.hasErrors()) {
                 return "modificar-usuario.html";
             }
+//            Usuario user = usuarioServicio.buscarPorId(usuario.getId());
+//            System.out.println(user.getNombre());
+            
+//            if (usuarioServicio.buscarPorId(usuario.getId()) != null) {
+//                System.out.println("ENCONTRADO");
+//            } else {
+//                System.out.println("no encontrado");
+//            }
+
+//            Usuario user = usuarioServicio.buscarPorId(id);
+//            System.out.println("...............");
+//            System.out.println(user.getNombre());
+            System.out.println("ANTES DE ENTRAR AL SERVICIO");
             usuarioServicio.modificarUsuario(usuario.getId(), usuario.getNombre(), usuario.getApellido(), usuario.getEmail(), usuario.getTelefono());
             return "index.html";
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             modelo.put("error", e.getMessage());
             return "modificar-usuario.html";
         }
