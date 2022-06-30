@@ -22,6 +22,7 @@
                     <li th:if="${session.usuariosession == null}"><a href="/usuario/registro">Registrate</a></li>
                     <li th:if="${session.usuariosession == null}"><a href="/usuario/login">Log In</a></li>
                     <li sec:authorize="hasRole('ADMIN')" ><a href="/producto/registro">Registro Productos</a></li>
+                    <li sec:authorize="hasRole('ADMIN')" ><a href="/producto/dashboard">Productos Dashboard</a></li>
                 </ul>
                 <div th:if="${session.usuariosession != null}" style="margin-left: 10px;">
                     <a th:href="@{/logout}" class="boton-salir"><button type="button">Cerrar Sesion</button></a>

@@ -39,7 +39,12 @@ public class PedidoController {
     @GetMapping("/catalogo")
     public String mostrarProductos(ModelMap modelo) {
         try {
-            modelo.put("productos", productoServicio.listarProductos());
+            if (productoServicio.listarProductosDeAlta().size() == 0) {
+                modelo.put("productos", null);
+            } else {
+                modelo.put("productos", productoServicio.listarProductosDeAlta());
+            }
+            
             return "marketplaceList.html";
         } catch (ErrorServicio ex) {
             return "index.html";

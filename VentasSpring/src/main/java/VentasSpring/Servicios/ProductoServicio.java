@@ -119,8 +119,8 @@ public class ProductoServicio {
         }
     }
     
-    public List<Producto> listarProductos() throws ErrorServicio {
-        return productoRepositorio.listarProductos();
+    public List<Producto> listarProductosDeAlta() throws ErrorServicio {
+        return productoRepositorio.listarProductosDeAlta();
     }
     
     public Producto buscarPorId(String id) throws ErrorServicio {
@@ -133,4 +133,9 @@ public class ProductoServicio {
         }
         
     }
+    
+    public List<Producto> listarProductosAll() throws ErrorServicio {
+        return productoRepositorio.listarProductosAll();
+    }
+    
 }

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<!--
+        Spectral by HTML5 UP
+        html5up.net | @ajlkn
+        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Registro</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1 style="margin-top: 12px"><a href="/">VENTAS SPRING</a></h1>
+            <nav id="nav" th:replace="/fragments/nav :: nav"></nav>
+        </header>
+
+        <!-- Main -->
+        <article id="main">
+
+            <section class="form-registro responsive-form">
+                
+                <p style="background-color: #8f0707; font-family:Verdana; border: 2px solid #272827; border-radius: 5px" th:if="${error != null}" th:text="${error}" class="error texto-centrado"></p>
+                <form method="POST" th:action="@{/producto/modificar(id=__${producto.id}__)}" th:object="${producto}"
+                    enctype="multipart/form-data">
+                    <h2 class="texto-centrado">REGISTRO DE PRODUCTOS</h2>
+                    <div class="gtr-uniform">
+                        <label for="demo-name" style="margin-bottom: 2px;">NOMBRE DEL PRODUCTO:</label>
+                        <div class="col-6" style="margin-bottom: 5px;">
+                        <input type="text" name="nombre" id="demo-name" th:field="*{nombre}" placeholder="Name" />
+                        </div>
+                        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color: red;"></span>
+
+                        <label for="demo-name" style="margin-bottom: 2px;">PRECIO:</label>
+                        <div class="col-6" style="margin-bottom: 5px;">
+                        <input class="stylesNumber" type="number" name="precio" id="demo-email" th:field="*{precio}" placeholder="Precio" />
+                        </div>
+                        <span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}" style="color: red;"></span>
+
+                        <label for="demo-name" style="margin-bottom: 2px;">NOMBRE DEL FABRICANTE:</label>
+                        <div class="col-6" style="margin-bottom: 5px;">
+                        <input class="stylesNumber" type="text" name="fabricante" id="demo-email"
+                        th:field="*{fabricante}" placeholder="Name" />
+                        </div>
+                        <span th:if="${#fields.hasErrors('fabricante')}" th:errors="*{fabricante}" style="color: red;"></span>
+
+                        <label for="demo-name" style="margin-bottom: 2px;">STOCK:</label>
+                        <div class="col-6" style="margin-bottom: 5px;">
+                        <input class="stylesNumber" type="number" name="stock" id="demo-email" th:field="*{stock}" placeholder="Stock" />
+                        </div>
+                        <span th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}" style="color: red;"></span>
+
+                        <label for="demo-name" style="margin-bottom: 2px;">FOTOS:</label>
+                        <div class="col-6" style="margin-bottom: 5px;">
+                        <input class="stylesNumber form-file" type="file" accept="image/png, image/jpeg" multiple name="archivos" id="demo-email" placeholder="Fotos" />
+                        </div>
+
+                        <label for="demo-name" style="margin-bottom: 2px;">DESCRIPCION DEL PRODUCTO:</label>
+                        <div class="col-12" style="margin-bottom: 10px;">
+                        <textarea name="descripcion" id="demo-message" th:field="*{descripcion}"
+                        placeholder="Ingrese una descripción..." rows="6"></textarea>
+                        </div>
+                        <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}" style="color: red;"></span>
+
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" value="Modificar" class="primary" /></li>
+                                <li><input type="reset" value="Reset" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Footer -->
+            <footer id="nav" th:replace="/fragments/footer :: footer"></footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/browser.min.js"></script>
+    <script src="/js/breakpoints.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 package VentasSpring.Controladores;
 
 import VentasSpring.Entidades.Producto;
+import VentasSpring.Errores.ErrorServicio;
 import VentasSpring.Servicios.ProductoServicio;
 import java.util.List;
 import javax.validation.Valid;
@@ -34,7 +35,7 @@ public class ProductoController {
         return "registro-producto.html";
 
     }
-    
+
     @PostMapping("/registro")
     public String registroProducto(@Valid Producto producto, Errors errores, ModelMap modelo, List<MultipartFile> archivos) {
         try {
@@ -51,5 +52,62 @@ public class ProductoController {
             return "registro-producto.html";
         }
 
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboardProductos(ModelMap modelo) {
+        try {
+            modelo.put("productos", productoServicio.listarProductosAll());
+            return "productosDashboard.html";
+        } catch (ErrorServicio ex) {
+            return "index.html";
+        }
+
+    }
+
+    @GetMapping("/dashboard/delete{id}")
+    public String dashboardProductosBaja(ModelMap modelo, String id) {
+        try {
+            productoServicio.bajaProducto(id);
+            modelo.put("productos", productoServicio.listarProductosAll());
+            return "productosDashboard.html";
+        } catch (ErrorServicio ex) {
+            return "index.html";
+        }
+
+    }
+
+    @GetMapping("/dashboard/alta{id}")
+    public String dashboardProductosAlta(ModelMap modelo, String id) {
+        try {
+            productoServicio.altaProducto(id);
+            modelo.put("productos", productoServicio.listarProductosAll());
+            return "productosDashboard.html";
+        } catch (ErrorServicio ex) {
+            return "index.html";
+        }
+
+    }
+
+    @GetMapping("/modificar{id}")
+    public String mnodificarProducto(ModelMap modelo, String id) {
+        try {
+            Producto producto = productoServicio.buscarPorId(id);
+            modelo.addAttribute("producto", producto);
+            return "modificarProducto.html";
+        } catch (ErrorServicio ex) {
+            return "index.html";
+        }
+    }
+    
+    @PostMapping("/modificar{id}")
+    public String mnodificarProducto(ModelMap modelo, Producto producto) {
+        try {
+            productoServicio.modificarProducto(producto.getId(), producto.getNombre(), producto.getPrecio(), producto.getDescripcion(), producto.getFabricante(), producto.getStock());
+            return "index.html";
+        } catch (ErrorServicio ex) {
+            modelo.put("error", ex.getMessage());
+            return "modificarProducto.html";
+        }
     }
 }

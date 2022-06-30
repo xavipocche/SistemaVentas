@@ -99,7 +99,6 @@ public class UsuarioController {
 //            Usuario user = usuarioServicio.buscarPorId(id);
 //            System.out.println("...............");
 //            System.out.println(user.getNombre());
-            System.out.println("ANTES DE ENTRAR AL SERVICIO");
             usuarioServicio.modificarUsuario(usuario.getId(), usuario.getNombre(), usuario.getApellido(), usuario.getEmail(), usuario.getTelefono());
             return "index.html";
         } catch (Exception e) {

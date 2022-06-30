@@ -21,38 +21,35 @@
                 <nav id="nav" th:replace="/fragments/nav :: nav"></nav>
             </header>
 
-            <section style="padding-top: 50px" class="wrapper">
+                <h5>Alternate</h5>
                 <div class="table-wrapper">
-                    <h2 style="border-top: 2px solid white; border-bottom: 2px solid white; margin-bottom: 20px" class="texto-centrado">LISTADO DE PRODUCTOS</h2>
-                    <table th:if="${productos != null}">
+                    <table class="alt">
                         <thead>
-                            <tr style="text-transform: uppercase;">
+                            <tr>
                                 <th>Producto</th>
                                 <th>Descripción</th>
                                 <th>Precio</th>
-                                <th class="boton-market" style="text-align: center;">Agregar/Quitar</th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
+
+                        <!-- En caso de estar dado de baja se muestra el pulgar hacia abajo y dando click se da de alta al producto. Lo mismo ocurre cuando el pulgar esta hacia arriba -->
                         <tbody>
-                            <tr class="text-responsive" style="vertical-align: center;" th:each="producto: ${productos}">
+                            <tr th:each="producto: ${productos}">
                                 <td th:text="${producto.nombre}"></td>
                                 <td th:text="${producto.descripcion}"></td>
-                                <!--<td th:text="${#numbers.formatCurrency(producto.precio)}"></td>-->
                                 <td th:text="${'$' + #numbers.formatDecimal(producto.precio,1,2)}"></td>
-                                <td class="boton-market" style="text-align: center;"><a style="letter-spacing: 0px; line-height: 35px; padding: 5px;" href="#" class="button primary boton-market">Agregar al carrito 
-                                    <i class="tiny material-icons" style="vertical-align: middle;font-size: 1.3rem">shopping_cart</i> </a></td>
-                                <!--<td class="boton-responsive" style="text-align: center;"><a style="letter-spacing: 0px; line-height: 25px; padding: 5px;" href="#" class="button primary boton-responsive">Agregar</a></td>-->
+                                <td class="boton-market" style="text-align: center;"><a style="letter-spacing: 0px; line-height: 35px; padding: 5px;" th:href="@{/producto/modificar(id=__${producto.id}__)}" class="button primary boton-market">
+                                    <i class="tiny material-icons" style="vertical-align: middle;font-size: 1.3rem">border_color</i></a>
+                                    <a th:if="${producto.alta == true}" style="letter-spacing: 0px; line-height: 35px; padding: 5px;" class="button primary boton-market" th:href="@{/producto/dashboard/delete(id=__${producto.id}__)}"><i class="tiny material-icons" style="vertical-align: middle;font-size: 1.3rem">thumb_up</i> </a>
+                                    <a th:if="${producto.alta == false}" style="letter-spacing: 0px; line-height: 35px; padding: 5px;" class="button primary boton-market" th:href="@{/producto/dashboard/alta(id=__${producto.id}__)}"><i class="tiny material-icons" style="vertical-align: middle;font-size: 1.3rem">thumb_down</i> </a>
+                                </td>
                             </tr>
+                          
                         </tbody>
-                        <tfoot>
-                            <tr>
-                            </tr>
-                        </tfoot>
+                        
                     </table>
-                    <h3 style="margin-top: 70px;margin-bottom: 20px" class="form-registro responsive-form texto-centrado" th:if="${productos == null}">Lo sentimos, no tenemos productos en stock.</h>
-                    
                 </div>
-            </section>
 
             <!-- Footer -->
             <footer id="nav" th:replace="/fragments/footer :: footer"></footer>

@@ -17,8 +17,11 @@ public interface ProductoRepositorio extends JpaRepository<Producto, String> {
     @Query("SELECT p FROM Producto p WHERE p.nombre = :nombre")
     public Producto buscarPorNombre(@Param("nombre") String nombre);
     
+    @Query("SELECT p FROM Producto p WHERE p.alta = 1 ORDER BY p.nombre")
+    public List<Producto> listarProductosDeAlta();
+    
     @Query("SELECT p FROM Producto p ORDER BY p.nombre")
-    public List<Producto> listarProductos();
+    public List<Producto> listarProductosAll();
     
     @Query("SELECT p from Producto p ORDER BY p.precio")
     public List<Producto> ordenarProductosPrecio();
