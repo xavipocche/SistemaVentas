@@ -1,4 +1,4 @@
-package VentasSpring.Entidades;
+    package VentasSpring.Entidades;
 
 import VentasSpring.Enums.Rol;
 import java.util.List;
